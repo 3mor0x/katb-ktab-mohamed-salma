@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="دعوة كتب كتاب محمد وسلمى">
+    <title>محمد &amp; سلمى | كتب كتاب</title>
+    
+    <!-- Google Fonts Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- خلفية الصوت والموسيقى المحلية -->
+    <audio id="weddingAudio" loop preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- الإطار الرئيسي للعرض -->
+    <div class="invitation-container">
+
+        <!-- ==========================================
+             0. تجربة فتح الظرف الملكي
+             ========================================== -->
+        <section id="opening" class="opening-screen">
+            <div class="ambient-particles" id="particles"></div>
+            
+            <div class="envelope-wrapper">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-back"></div>
+                    <div class="letter" id="letter">
+                        <div class="letter-content">
+                            <span class="letter-tag">دعوة عقد قران</span>
+                            <h2 class="letter-names">م &amp; س</h2>
+                            <p class="letter-sub">يشرفنا حضوركم لترتسم فرحتنا بوجودكم</p>
+                            <div class="botanical-monogram">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="envelope-flap" id="flap"></div>
+                    <div class="wax-seal" id="waxSeal" aria-label="فتح الدعوة">
+                        <div class="wax-seal-inner">
+                            <span>م&amp;س</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="opening-actions">
+                <p class="opening-tagline">أنتم مدعوون لمشاركتنا فرحة عقد القران</p>
+                <h1 class="opening-title">محمد &amp; سلمى</h1>
+                <button class="btn-luxury" id="btnOpenInvitation">
+                    <span class="btn-text">افتح الدعوة</span>
+                    <span class="btn-border"></span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             محتوى الدعوة الرئيسي
+             ========================================== -->
+        <main id="mainContent" class="main-content hidden">
+
+            <!-- أزرار التحكم الطافية -->
+            <div class="floating-controls">
+                <button id="btnMusicToggle" class="floating-btn music-btn paused" aria-label="تشغيل الموسيقى">
+                    <div class="disc-icon">
+                        <i class="fa-solid fa-compact-disc"></i>
+                    </div>
+                    <span class="music-label">الموسيقى</span>
+                </button>
+
+                <button id="btnNavToggle" class="floating-btn nav-btn" aria-label="القائمة">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+
+            <!-- قائمة التنقل السريعة -->
+            <nav id="overlayNav" class="overlay-nav">
+                <div class="nav-content">
+                    <span class="nav-monogram">م &amp; س</span>
+                    <ul class="nav-links">
+                        <li><a href="#hero" class="nav-link">الرئيسية</a></li>
+                        <li><a href="#countdownSection" class="nav-link">العد التنازلي</a></li>
+                        <li><a href="#venue" class="nav-link">المكان والموعد</a></li>
+                        <li><a href="#guestbook" class="nav-link">سجل المباركات</a></li>
+                    </ul>
+                    <p class="nav-footer">الخميس ٨ أكتوبر ٢٠٢٦ • مسجد المشير طنطاوي</p>
+                </div>
+            </nav>
+
+
+            <!-- ==========================================
+                 1. الواجهة الرئيسية (HERO)
+                 ========================================== -->
+            <section id="hero" class="hero-section">
+                <div class="hero-bg-wrapper">
+                    <img id="heroImage" class="hero-bg" src="couple.jpg" alt="محمد وسلمى" loading="eager">
+                    <div class="hero-overlay"></div>
+                </div>
+
+                <div class="hero-content">
+                    <span class="hero-subtitle reveal-text">بقلوب تعمرها المحبة والسرور</span>
+                    <h1 class="hero-title reveal-text">
+                        <span id="groomNameHero">محمد</span>
+                        <span class="ampersand">&amp;</span>
+                        <span id="brideNameHero">سلمى</span>
+                    </h1>
+                    <p class="hero-invite-text reveal-text">يتشرفان بدعوتكم لمشاركتهما فرحة عقد القران</p>
+                    <div class="hero-date-badge reveal-text">
+                        <span id="heroDate">الخميس ٨ أكتوبر ٢٠٢٦</span>
+                        <span class="divider">•</span>
+                        <span id="heroCity">القاهرة</span>
+                    </div>
+                    <a href="#venue" class="btn-gold-line reveal-text">تفاصيل الموعد والمكان</a>
+                </div>
+
+                <div class="scroll-indicator">
+                    <span class="scroll-text">اسحب للأسفل للاكتشاف</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 2. العداد التنازلي
+                 ========================================== -->
+            <section id="countdownSection" class="section-padding countdown-section">
+                <div class="section-header">
+                    <span class="section-tag">نحو اليوم الموعود</span>
+                    <h2 class="section-title">العد التنازلي لكتب الكتاب</h2>
+                    <div class="botanical-divider"></div>
+                </div>
+
+                <div class="countdown-container" id="countdownTimer">
+                    <div class="countdown-card">
+                        <span class="countdown-num" id="cdDays">00</span>
+                        <span class="countdown-label">يوم</span>
+                    </div>
+                    <div class="countdown-card">
+                        <span class="countdown-num" id="cdHours">00</span>
+                        <span class="countdown-label">ساعة</span>
+                    </div>
+                    <div class="countdown-card">
+                        <span class="countdown-num" id="cdMinutes">00</span>
+                        <span class="countdown-label">دقيقة</span>
+                    </div>
+                    <div class="countdown-card">
+                        <span class="countdown-num" id="cdSeconds">00</span>
+                        <span class="countdown-label">ثانية</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 3. المكان والتفاصيل
+                 ========================================== -->
+            <section id="venue" class="section-padding venue-section">
+                <div class="section-header">
+                    <span class="section-tag">المكان والتوقيت</span>
+                    <h2 class="section-title">موقع عقد القران</h2>
+                    <div class="botanical-divider"></div>
+                </div>
+
+                <div class="venue-card">
+                    <div class="venue-details">
+                        <h3 id="venueName" class="venue-title">مسجد المشير طنطاوي</h3>
+                        <p id="venueHall" class="venue-hall"><i class="fa-solid fa-mosque"></i> قاعة السلام - Al Salam Hall</p>
+                        <p id="venueTime" class="venue-time"><i class="fa-regular fa-clock"></i> الخميس ٨-١٠-٢٠٢٦ الساعة ٨:٠٠ مساءً</p>
+                        
+                        <div class="venue-actions">
+                            <a id="venueMapBtn" href="https://maps.app.goo.gl/bfR3EQ5qBbwfPyZr9?g_st=iw" target="_blank" rel="noopener" class="btn-luxury btn-full">
+                                <span class="btn-text"><i class="fa-solid fa-location-dot"></i> موقع القاعة على الخريطة</span>
+                                <span class="btn-border"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 4. سجل المباركات والتهاني
+                 ========================================== -->
+            <section id="guestbook" class="section-padding guestbook-section">
+                <div class="section-header">
+                    <span class="section-tag">تهانيكم تسعدنا</span>
+                    <h2 class="section-title">سجل المباركات</h2>
+                    <div class="botanical-divider"></div>
+                </div>
+
+                <div class="guestbook-container">
+                    <form id="guestbookForm" class="guestbook-form">
+                        <div class="form-group">
+                            <input type="text" id="gbName" required placeholder="اسمك الكريم">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="gbMessage" rows="3" required placeholder="اكتب دعوة أو تهنئة لمحمد وسلمى..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-gold-line">إرسال التهنئة</button>
+                    </form>
+
+                    <div id="guestbookList" class="guestbook-list">
+                        <!-- تهاني الزوار الديناميكية من الفايربيز -->
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==========================================
+                 5. التذييل والختام
+                 ========================================== -->
+            <footer class="footer-section">
+                <div class="footer-content">
+                    <span class="footer-monogram">م &amp; س</span>
+                    <h2 class="footer-title">ننتظركم بلهفة لنحتفل معاً</h2>
+                    <p class="footer-date">الخميس ٨ أكتوبر ٢٠٢٦ • مسجد المشير طنطاوي (قاعة السلام)</p>
+                    <div class="botanical-divider"></div>
+                    <p class="footer-credit">لوميير • تجربة رقمية فاخرة</p>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
