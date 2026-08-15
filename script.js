@@ -1,6 +1,6 @@
 /**
  * LUMIÈRE ARABIC - KATB KTAB EDITION
- * Connected to Firebase Realtime Database
+ * Connected to Firebase Realtime Database (wishes.json)
  */
 
 // ==========================================
