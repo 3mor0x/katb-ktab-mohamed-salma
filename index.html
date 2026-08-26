@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="دعوة عقد قران محمود وسلمى">
-    <title>محمود &amp; سلمى | كتب كتاب</title>
+    <meta name="description" content="Katb Ketab Invitation - Mahmoud &amp; Salma">
+    <title>Mahmoud &amp; Salma | Katb Ketab</title>
     
-    <!-- Google Fonts Arabic -->
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2246%22 fill=%22%230A140F%22 stroke=%22%23D4AF37%22 stroke-width=%224%22/><text x=%2250%%22 y=%2255%%22 font-size=%2255%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23D4AF37%22 font-family=%22serif%22>✨</text></svg>">
+    
+    <!-- Google Fonts: خطوط كاليجرافي ملكية ناعمة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,47 +21,47 @@
 </head>
 <body>
 
-    <!-- خلفية الصوت والموسيقى المحلية -->
+    <!-- خلفية الجزيئات الحية المتحركة -->
+    <canvas id="particlesCanvas"></canvas>
+
+    <!-- Background Audio -->
     <audio id="weddingAudio" loop preload="auto">
         <source src="song.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- الإطار الرئيسي للعرض -->
     <div class="invitation-container">
 
         <!-- ==========================================
-             0. تجربة فتح الظرف الملكي
+             0. OPENING ENVELOPE SCREEN
              ========================================== -->
         <section id="opening" class="opening-screen">
-            <div class="ambient-particles" id="particles"></div>
-            
             <div class="envelope-wrapper">
                 <div class="envelope" id="envelope">
                     <div class="envelope-back"></div>
                     <div class="letter" id="letter">
                         <div class="letter-content">
-                            <span class="letter-tag">دعوة عقد قران</span>
-                            <h2 class="letter-names">م &amp; س</h2>
-                            <p class="letter-sub">يشرفنا حضوركم لترتسم فرحتنا بوجودكم</p>
+                            <span class="letter-tag">INVITATION</span>
+                            <h2 class="letter-names-script">Mahmoud &amp; Salma</h2>
+                            <p class="letter-sub">The Honor of Your Presence is Requested</p>
                             <div class="botanical-monogram">
                                 <i class="fa-solid fa-leaf"></i>
                             </div>
                         </div>
                     </div>
                     <div class="envelope-flap" id="flap"></div>
-                    <div class="wax-seal" id="waxSeal" aria-label="فتح الدعوة">
+                    <div class="wax-seal" id="waxSeal" aria-label="Open Invitation">
                         <div class="wax-seal-inner">
-                            <span>م&amp;س</span>
+                            <span>M&amp;S</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="opening-actions">
-                <p class="opening-tagline">أنتم مدعوون لمشاركتنا فرحة عقد القران</p>
-                <h1 class="opening-title">محمود &amp; سلمى</h1>
-                <button class="btn-luxury" id="btnOpenInvitation">
-                    <span class="btn-text">افتح الدعوة</span>
+                <p class="opening-tagline">YOU ARE CORDIALLY INVITED TO OUR KATB KETAB</p>
+                <h1 class="opening-title-script">Mahmoud &amp; Salma</h1>
+                <button class="btn-luxury shine-effect" id="btnOpenInvitation">
+                    <span class="btn-text">OPEN INVITATION</span>
                     <span class="btn-border"></span>
                 </button>
             </div>
@@ -66,122 +69,113 @@
 
 
         <!-- ==========================================
-             محتوى الدعوة الرئيسي
+             MAIN CONTENT
              ========================================== -->
         <main id="mainContent" class="main-content hidden">
 
-            <!-- أزرار التحكم الطافية -->
+            <!-- Floating Controls -->
             <div class="floating-controls">
-                <button id="btnMusicToggle" class="floating-btn music-btn paused" aria-label="تشغيل الموسيقى">
+                <button id="btnMusicToggle" class="floating-btn music-btn paused" aria-label="Toggle Music">
                     <div class="disc-icon">
                         <i class="fa-solid fa-compact-disc"></i>
                     </div>
-                    <span class="music-label">الموسيقى</span>
-                </button>
-
-                <button id="btnNavToggle" class="floating-btn nav-btn" aria-label="القائمة">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
+                    <span class="music-label">MUSIC</span>
                 </button>
             </div>
 
-            <!-- قائمة التنقل السريعة -->
-            <nav id="overlayNav" class="overlay-nav">
-                <div class="nav-content">
-                    <span class="nav-monogram">م &amp; س</span>
-                    <ul class="nav-links">
-                        <li><a href="#hero" class="nav-link">الرئيسية</a></li>
-                        <li><a href="#countdownSection" class="nav-link">العد التنازلي</a></li>
-                        <li><a href="#venue" class="nav-link">المكان والموعد</a></li>
-                        <li><a href="#guestbook" class="nav-link">سجل المباركات</a></li>
-                    </ul>
-                    <p class="nav-footer">الخميس ٨ أكتوبر ٢٠٢٦ • مسجد المشير طنطاوي</p>
-                </div>
-            </nav>
-
 
             <!-- ==========================================
-                 1. الواجهة الرئيسية (HERO)
+                 1. HERO SECTION
                  ========================================== -->
             <section id="hero" class="hero-section">
                 <div class="hero-bg-wrapper">
-                    <img id="heroImage" class="hero-bg" src="couple.jpg" alt="محمود وسلمى" loading="eager">
+                    <img id="heroImage" class="hero-bg" src="couple.jpg" alt="Mahmoud and Salma" loading="eager">
                     <div class="hero-overlay"></div>
                 </div>
 
                 <div class="hero-content">
-                    <span class="hero-subtitle reveal-text">بقلوب تعمرها المحبة والسرور</span>
-                    <h1 class="hero-title reveal-text">
-                        <span id="groomNameHero">محمود</span>
-                        <span class="ampersand">&amp;</span>
-                        <span id="brideNameHero">سلمى</span>
-                    </h1>
-                    <p class="hero-invite-text reveal-text">يتشرفان بدعوتكم لمشاركتهما فرحة عقد القران</p>
-                    <div class="hero-date-badge reveal-text">
-                        <span id="heroDate">الخميس ٨ أكتوبر ٢٠٢٦</span>
-                        <span class="divider">•</span>
-                        <span id="heroCity">القاهرة</span>
+                    
+                    <!-- برواز الآية القرآنية الرايق الخفيف -->
+                    <div class="quran-framed-box reveal-text">
+                        <p class="bismillah">﷽</p>
+                        <p class="quran-text">« وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً »</p>
                     </div>
-                    <a href="#venue" class="btn-gold-line reveal-text">تفاصيل الموعد والمكان</a>
+
+                    <span class="hero-subtitle reveal-text">We invite you to witness a moment close to our hearts</span>
+                    
+                    <!-- الأسماء بخط كاليجرافي إنجليزي فخم ورايق -->
+                    <div class="hero-names-wrapper reveal-text">
+                        <h1 class="hero-title-script">
+                            <span>Mahmoud</span>
+                            <span class="script-amp">&amp;</span>
+                            <span>Salma</span>
+                        </h1>
+                    </div>
+                    
+                    <div class="hero-date-badge reveal-text">
+                        <span>Thursday, October 8, 2026</span>
+                    </div>
+
+                    <a href="#venue" class="btn-gold-line reveal-text shine-effect">VENUE &amp; TIME DETAILS</a>
                 </div>
 
                 <div class="scroll-indicator">
-                    <span class="scroll-text">اسحب للأسفل للاكتشاف</span>
+                    <span class="scroll-text">SCROLL TO EXPLORE</span>
                     <div class="scroll-line"></div>
                 </div>
             </section>
 
 
             <!-- ==========================================
-                 2. العداد التنازلي
+                 2. COUNTDOWN SECTION
                  ========================================== -->
             <section id="countdownSection" class="section-padding countdown-section">
                 <div class="section-header">
-                    <span class="section-tag">نحو اليوم الموعود</span>
-                    <h2 class="section-title">العد التنازلي لكتب الكتاب</h2>
+                    <span class="section-tag">COUNTING DOWN</span>
+                    <h2 class="section-title">Katb Ketab Countdown</h2>
                     <div class="botanical-divider"></div>
                 </div>
 
                 <div class="countdown-container" id="countdownTimer">
-                    <div class="countdown-card">
-                        <span class="countdown-num" id="cdDays">00</span>
-                        <span class="countdown-label">يوم</span>
+                    <div class="countdown-card decor-box">
+                        <span class="countdown-num pulse-anim" id="cdDays">00</span>
+                        <span class="countdown-label">DAYS</span>
                     </div>
-                    <div class="countdown-card">
-                        <span class="countdown-num" id="cdHours">00</span>
-                        <span class="countdown-label">ساعة</span>
+                    <div class="countdown-card decor-box">
+                        <span class="countdown-num pulse-anim" id="cdHours">00</span>
+                        <span class="countdown-label">HOURS</span>
                     </div>
-                    <div class="countdown-card">
-                        <span class="countdown-num" id="cdMinutes">00</span>
-                        <span class="countdown-label">دقيقة</span>
+                    <div class="countdown-card decor-box">
+                        <span class="countdown-num pulse-anim" id="cdMinutes">00</span>
+                        <span class="countdown-label">MINUTES</span>
                     </div>
-                    <div class="countdown-card">
-                        <span class="countdown-num" id="cdSeconds">00</span>
-                        <span class="countdown-label">ثانية</span>
+                    <div class="countdown-card decor-box">
+                        <span class="countdown-num pulse-anim" id="cdSeconds">00</span>
+                        <span class="countdown-label">SECONDS</span>
                     </div>
                 </div>
             </section>
 
 
             <!-- ==========================================
-                 3. المكان والتفاصيل
+                 3. VENUE & TIME SECTION
                  ========================================== -->
             <section id="venue" class="section-padding venue-section">
                 <div class="section-header">
-                    <span class="section-tag">المكان والتوقيت</span>
-                    <h2 class="section-title">موقع عقد القران</h2>
+                    <span class="section-tag">VENUE &amp; TIME</span>
+                    <h2 class="section-title">Katb Ketab Location</h2>
                     <div class="botanical-divider"></div>
                 </div>
 
-                <div class="venue-card">
+                <div class="venue-card decor-box">
                     <div class="venue-details">
-                        <h3 id="venueName" class="venue-title">مسجد المشير طنطاوي</h3>
-                        <p id="venueHall" class="venue-hall"><i class="fa-solid fa-mosque"></i> قاعة السلام - Al Salam Hall</p>
-                        <p id="venueTime" class="venue-time"><i class="fa-regular fa-clock"></i> الخميس ٨-١٠-٢٠٢٦ الساعة ٨:٠٠ مساءً</p>
+                        <h3 class="venue-title">Masjid Moshir Tantawy</h3>
+                        <p class="venue-hall"><i class="fa-solid fa-mosque"></i> Moshir Tantawy – Al Salam Hall 🕌</p>
+                        <p class="venue-time"><i class="fa-regular fa-clock"></i> Thursday 8/10/2026 at 8:00 PM</p>
                         
                         <div class="venue-actions">
-                            <a id="venueMapBtn" href="https://maps.app.goo.gl/bfR3EQ5qBbwfPyZr9?g_st=iw" target="_blank" rel="noopener" class="btn-luxury btn-full">
-                                <span class="btn-text"><i class="fa-solid fa-location-dot"></i> موقع القاعة على الخريطة</span>
+                            <a id="venueMapBtn" href="https://maps.app.goo.gl/zkz4tCXjoCxnUb3u9?g_st=ic" target="_blank" rel="noopener" class="btn-luxury btn-full shine-effect">
+                                <span class="btn-text"><i class="fa-solid fa-location-dot"></i> THE LOCATION ON MAP</span>
                                 <span class="btn-border"></span>
                             </a>
                         </div>
@@ -191,54 +185,22 @@
 
 
             <!-- ==========================================
-                 4. سجل المباركات والتهاني
-                 ========================================== -->
-            <section id="guestbook" class="section-padding guestbook-section">
-                <div class="section-header">
-                    <span class="section-tag">تهانيكم تسعدنا</span>
-                    <h2 class="section-title">سجل المباركات</h2>
-                    <div class="botanical-divider"></div>
-                </div>
-
-                <div class="guestbook-container">
-                    <form id="guestbookForm" class="guestbook-form">
-                        <div class="form-group">
-                            <input type="text" id="gbName" required placeholder="اسمك الكريم">
-                        </div>
-                        <div class="form-group">
-                            <textarea id="gbMessage" rows="3" required placeholder="اكتب دعوة أو تهنئة لمحمود وسلمى..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-gold-line">إرسال التهنئة</button>
-                    </form>
-
-                    <div id="guestbookList" class="guestbook-list">
-                        <!-- تهاني الزوار الديناميكية من الفايربيز -->
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- ==========================================
-                 5. التذييل والختام
+                 4. FOOTER & BRAND RIGHTS
                  ========================================== -->
             <footer class="footer-section">
                 <div class="footer-content">
-                    <span class="footer-monogram">م &amp; س</span>
-                    <h2 class="footer-title">ننتظركم بلهفة لنحتفل معاً</h2>
-                    
-                    <!-- جملة محمود سلم قلبه لسلمى بالخط والرسم المطلوب -->
-                    <div class="love-phrase-wrapper">
-                        <p class="love-phrase">محمود سلم قلبه لسلمى</p>
-                        <div class="love-divider">
-                            <span class="line"></span>
-                            <span class="heart">♡</span>
-                            <span class="line"></span>
-                        </div>
-                    </div>
-
-                    <p class="footer-date">الخميس ٨ أكتوبر ٢٠٢٦ • مسجد المشير طنطاوي (قاعة السلام)</p>
+                    <span class="footer-monogram-script">Mahmoud &amp; Salma</span>
                     <div class="botanical-divider"></div>
-                    <p class="footer-credit">لوميير • تجربة رقمية فاخرة</p>
+                    
+                    <p class="footer-invitation-msg">
+                        With hearts full of joy, we warmly invite you to witness and celebrate our Katb Ketab.<br>
+                        Your presence would truly honor us as we share one of the most meaningful moments of our lives together 🤍
+                    </p>
+
+                    <p class="footer-date">Thursday, October 8, 2026 • Moshir Tantawy Mosque, Al Salam Hall</p>
+                    <div class="botanical-divider"></div>
+                    
+                    <p class="footer-credit">AURA INVITATIONS • DIGITAL EXPERIENCE</p>
                 </div>
             </footer>
 
